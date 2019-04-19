@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button, Image, View, Text } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation'; // 1.0.0-beta.27
+import { Button, Image, View, Text,  StyleSheet } from 'react-native';
+import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation'; // 1.0.0-beta.27
 
-class Find extends Component {
+
+class Find extends React.Component {
   static navigationOptions = {
       tabBarLabel: '发现',
       tabBarIcon: ({ focused }) =>
@@ -24,7 +25,7 @@ class Find extends Component {
       );
   }
 }
-class Me extends Component {
+class Me extends React.Component {
   static navigationOptions = {
       tabBarLabel: '我的',
 
@@ -48,7 +49,7 @@ class Me extends Component {
   }
 }
 
-class Tong extends Component {
+class Tong extends React.Component {
   static navigationOptions = {
       tabBarLabel: '通讯录',
       tabBarIcon: ({ focused }) =>
@@ -71,7 +72,7 @@ class Tong extends Component {
   }
 }
 
-class Chat extends Component {
+class Chat extends React.Component {
   static navigationOptions = {
       tabBarLabel: '聊天',
 
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export const MyApp = TabNavigator(
+const MyApp = createBottomTabNavigator(
   {
       Chat: {
           screen: Chat,
@@ -149,7 +150,7 @@ export const MyApp = TabNavigator(
       backBehavior: 'none',
 });
 
-export const AppNav = createStackNavigator(
+const AppNav = createStackNavigator(
   {
     Home: { screen: MyApp },
   },
@@ -159,6 +160,8 @@ export const AppNav = createStackNavigator(
 );
 
 const AppContainer = createAppContainer(AppNav);
+
+// export default App;
 
 export default class App extends React.Component {
   render() {
