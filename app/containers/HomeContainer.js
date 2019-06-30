@@ -6,6 +6,7 @@ import TopTabBar from './TopContainer';
 export default class Home extends React.Component {
   static navigationOptions = {
       tabBarLabel: '购票观影',
+      header: null,
       tabBarIcon: () =>
       {
           return (
@@ -17,7 +18,6 @@ export default class Home extends React.Component {
   render() {
       return (
           <View style={styles.container}>
-              <TopTabBar/>
               <Text>购票观影</Text>
           </View>
       );
